@@ -4,8 +4,7 @@ function BlogList(props) {
     const blogList = props.blogs.map(blog => {
         return (
             <Card key={blog.id}>
-            <div key={blog.id}>
-
+                <div key={blog.id}>
                     <h5 class="card-header">{blog.title}</h5>
                     <div class="card-body">
                         <p>Author: {blog.author}</p>
@@ -19,4 +18,5 @@ function BlogList(props) {
 
     return blogList;
 }
+
 export default BlogList;

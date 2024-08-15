@@ -14,9 +14,20 @@ function Blogs() {
         }, []);
 
     function deleteBlog(id) {
-        const newBlogs = blogs.filter(item => item.id !== id);
-        setBlogs(newBlogs);
+        fetch('http://localhost:4000/blogs/' + id, {
+            method: 'DELETE',
+        }).then(() => {
+            alert('Deleted!');
+            const newBlogs = blogs.filter(item => item.id !== id);
+            setBlogs(newBlogs);
+        });
     }
+
+    // function deleteBlogOld(id) {
+    //     const newBlogs = blogs.filter(item => item.id !== id);
+    //     setBlogs(newBlogs);
+    // }
+
     return (
         <div class="row">
             {blogs && <BlogList blogs={blogs} deleteBlog={deleteBlog} /> }
